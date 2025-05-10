@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-mono text-base leading-relaxed;
+    image-rendering: pixelated;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .retro-container {
+    @apply relative overflow-hidden;
+  }
+
+  .retro-container::before {
+    content: "";
+    @apply absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-white/5 to-transparent opacity-20 animate-scanline;
+  }
+
+  .retro-container::after {
+    content: "";
+    @apply absolute inset-0 pointer-events-none bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] bg-[size:2px_2px] opacity-[0.15];
+  }
+}
